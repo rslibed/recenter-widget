@@ -2,7 +2,6 @@
 /// <amd-dependency path="esri/core/tsSupport/decorateHelper" name="__decorate" />
 
 import {subclass, declared, property} from "esri/core/accessorSupport/decorators";
-
 import Widget = require("esri/widgets/Widget");
 import watchUtils = require("esri/core/watchUtils");
 
@@ -38,7 +37,7 @@ class Recenter extends declared(Widget) {
         this._onViewChange = this._onViewChange.bind(this);
     }
     postInitialize() {
-        watchUtils.init(this, 'view.center, view.interacting, view.scale', () => this._onViewchange());
+        watchUtils.init(this, 'view.center, view.interacting, view.scale', () => this._onViewChange());
     }
     // View
     @property()
@@ -89,3 +88,5 @@ class Recenter extends declared(Widget) {
         this.view.center = this.initialCenter;
     }
 }
+
+export = Recenter;
